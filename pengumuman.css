@@ -1,0 +1,188 @@
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle at top left, #2e004f, #000000 70%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.logo img {
+  height: 50px;
+  width: auto;
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+}
+
+.content-wrapper {
+  margin-top: 235px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  padding: 30px 100px;
+  margin: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+#result {
+  margin-top: 25px;
+  font-size: 22px;
+  min-height: 60px;
+  letter-spacing: 1px;
+}
+
+#fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
+
+.shake { animation: shake 0.5s; }
+
+@keyframes fadeScale {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.lulus-anim { animation: fadeScale 0.8s ease-out forwards; }
+
+.fail-text {
+  display: inline-block;
+  color: red;
+  font-weight: bold;
+  font-size: 28px;
+  margin-top: 15px;
+  position: relative;
+}
+
+.fail-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 3px;
+  background: red;
+  width: 0;
+  transform: translateY(-50%);
+}
+
+.fail-text.strike::after {
+  animation: strikeLine 0.8s forwards;
+}
+
+@keyframes strikeLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.fail-text.shake {
+  animation: shakeText 0.6s;
+}
+
+@keyframes shakeText {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.motivation {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 15px;
+  font-style: italic;
+  animation: fadeUp 1s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.qr-section {
+  margin-top: 60px;
+  margin-bottom: 100px;
+  text-align: center;
+  padding: 30px 100px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(0, 255, 119, 0.25);
+  width: 80%;
+  max-width: 500px;
+  margin-inline: auto;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: showQR 1.3s ease-out forwards;
+}
+
+@keyframes showQR {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.qr-img {
+  margin-bottom: 15px;
+  box-shadow: 0 0 15px #00ff77;
+  border-radius: 5px;
+  width: 150px;
+  height: 150px;
+}
+
+.prank-msg .selamat {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00ff77;
+}
+.prank-msg .prank {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff0077;
+}
+.prank-msg .motivasi {
+  font-size: 18px;
+  color: #ccc;
+}
+
+@media screen and (max-width: 720px) {
+  .container {
+    padding: 30px 40px;
+  }
+  .qr-section {
+    width: 90%;
+    padding: 20px;
+  }
+}

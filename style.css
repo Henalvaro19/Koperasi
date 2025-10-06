@@ -1,0 +1,191 @@
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top left, #2e004f, #000000 70%);
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.logo img {
+  height: 50px;
+  width: auto;
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+}
+
+.container {
+  text-align: center;
+  height: 330px;
+  padding: 30px 40px;
+  margin: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+form {
+  display: flex;
+  margin-top: -80px;
+  padding: 100px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input, button {
+  padding: 12px 15px;
+  margin: 8px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}
+
+input {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+button {
+  background: linear-gradient(90deg, #7d00ff, #00f7ff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: auto;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #7d00ff;
+}
+
+#result {
+  margin-top: 25px;
+  font-size: 22px;
+  min-height: 60px;
+  letter-spacing: 1px;
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
+
+#fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fail-text {
+  display: inline-block;
+  color: red;
+  font-weight: bold;
+  font-size: 28px;
+  margin-top: 15px;
+  position: relative;
+}
+
+.fail-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 3px;
+  background: red;
+  width: 0;
+  transform: translateY(-50%);
+}
+
+.fail-text.strike::after {
+  animation: strikeLine 0.8s forwards;
+}
+
+@keyframes strikeLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes fadeScale {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.lulus-anim {
+  animation: fadeScale 0.8s ease-out forwards;
+}
+
+@keyframes shakeText {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+.fail-text.shake {
+  animation: shakeText 0.6s;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.motivation {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 15px;
+  font-style: italic;
+  animation: fadeUp 1s ease-out forwards;
+}
+
+@media screen and (max-width: 720px) {
+  .container {
+   padding: 30px 20px;
+  }
+  form {
+    margin-top: 20px;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 25px;
+  }
+}
