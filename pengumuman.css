@@ -24,7 +24,7 @@ body {
 }
 
 .content-wrapper {
-  margin-top: 235px;
+  margin-top: 230px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -33,19 +33,22 @@ body {
 
 .container {
   text-align: center;
-  padding: 30px 100px;
+  height: 250px;
+  padding: 20px 120px;
   margin: 30px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  margin-bottom: 230px;
 }
 
 #result {
-  margin-top: 25px;
+  margin-top: 0px;
   font-size: 22px;
-  min-height: 60px;
+  min-height: 130px;
   letter-spacing: 1px;
 }
 
@@ -130,21 +133,20 @@ body {
 }
 
 .qr-section {
-  margin-top: 60px;
-  margin-bottom: 100px;
   text-align: center;
-  padding: 30px 100px;
+  height: 330px;
+  padding: 30px 40px;
+  margin: 30px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 25px rgba(0, 255, 119, 0.25);
-  width: 80%;
-  max-width: 500px;
-  margin-inline: auto;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
   opacity: 0;
   transform: translateY(40px);
   animation: showQR 1.3s ease-out forwards;
+  margin-bottom: 150px;
 }
 
 @keyframes showQR {
@@ -155,34 +157,39 @@ body {
 }
 
 .qr-img {
-  margin-bottom: 15px;
-  box-shadow: 0 0 15px #00ff77;
-  border-radius: 5px;
-  width: 150px;
-  height: 150px;
+  margin-bottom: 25px;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
 }
 
 .prank-msg .selamat {
   font-size: 24px;
   font-weight: bold;
-  color: #00ff77;
 }
 .prank-msg .prank {
   font-size: 20px;
   font-weight: bold;
-  color: #ff0077;
 }
 .prank-msg .motivasi {
   font-size: 18px;
-  color: #ccc;
 }
 
 @media screen and (max-width: 720px) {
   .container {
-    padding: 30px 40px;
+    padding: 20px 90px;
   }
   .qr-section {
-    width: 90%;
-    padding: 20px;
+    padding: 30px 40px;
+    margin-bottom: 200px;
+  }
+  .prank-msg .prank {
+    font-size: 15px;
+  }
+  .prank-msg .selamat {
+    font-size: 15px;
+  }
+  .prank-msg .motivasi {
+    font-size: 15px;
   }
 }

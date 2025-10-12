@@ -168,7 +168,7 @@ function showResult() {
               successEl.style.color = "#00ff77";
               successEl.style.fontWeight = "bold";
               successEl.style.fontSize = "34px";
-              successEl.style.marginTop = "20px";
+              successEl.style.marginTop = "10px";
               successEl.style.padding = "10px 20px";
               successEl.style.border = "2px solid #00ff77";
               successEl.style.borderRadius = "10px";
@@ -187,20 +187,11 @@ function showResult() {
               qrImg.classList.add("qr-img");
               qrSection.appendChild(qrImg);
 
-              const motivasi = [
-                "Semangatmu luar biasa! 💪",
-                "Kegigihanmu patut dicontoh 🔥",
-                "Terus kejar impianmu! 🚀",
-                "Kamu keren banget, lanjutkan perjuanganmu! 🌟",
-                "Jangan berhenti sampai di sini, masa depanmu cerah! ✨"
-              ];
-              const motivasiKata = motivasi[Math.floor(Math.random() * motivasi.length)];
-
               const prankMsg = document.createElement("div");
               prankMsg.classList.add("prank-msg");
               prankMsg.innerHTML = `
-                <span class="selamat">Selamat ya, kamu resmi...</span><br>
-                <span class="prank">Hehe kena prank ya 😆</span><br>
+                <span class="selamat">SELAMAT, kamu resmi</span><br>
+                <span class="prank">Hehe kena prank ya</span><br>
                 <span class="motivasi">${motivasiKata}</span>
               `;
               qrSection.appendChild(prankMsg);
@@ -210,7 +201,7 @@ function showResult() {
                 const yOffset = -80; 
                 const y = qrSection.getBoundingClientRect().top + window.scrollY + yOffset;
                 window.scrollTo({ top: y, behavior: "smooth" });
-              }, 400);
+              }, 3000);
             }, 2500);
           }, 1900);
         }, 800);
