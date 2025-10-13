@@ -168,7 +168,6 @@ function showResult() {
               successEl.style.color = "#00ff77";
               successEl.style.fontWeight = "bold";
               successEl.style.fontSize = "34px";
-              successEl.style.marginTop = "10px";
               successEl.style.padding = "10px 20px";
               successEl.style.border = "2px solid #00ff77";
               successEl.style.borderRadius = "10px";
@@ -182,7 +181,7 @@ function showResult() {
               qrSection.classList.add("qr-section");
 
               const qrImg = document.createElement("img");
-              qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Selamat%20LULUS%21%20Hehe%20kena%20prank%20ya%20%3A%29";
+              qrImg.src = "qrcode.png";
               qrImg.alt = "QR Code";
               qrImg.classList.add("qr-img");
               qrSection.appendChild(qrImg);
@@ -190,9 +189,11 @@ function showResult() {
               const prankMsg = document.createElement("div");
               prankMsg.classList.add("prank-msg");
               prankMsg.innerHTML = `
-                <span class="selamat">SELAMAT, kamu resmi</span><br>
+                <span class="selamat">SELAMAT!!</span><br><br>
+                <span class="selamat1">Kamu resmi LOLOS ketahap selanjutnya!</span><br>
                 <span class="prank">Hehe kena prank ya</span><br>
-                <span class="motivasi">${motivasiKata}</span>
+                <span class="motivasi">"${motivasiKata}"</span><br>
+                <span class="motivasi1">(MOHON UNTUK TIDAK DISEBAR LUASKAN)</span>
               `;
               qrSection.appendChild(prankMsg);
               const selamatContainer = document.getElementById("selamatContainer");
@@ -224,7 +225,9 @@ function showResult() {
 
       setTimeout(() => {
         const msgEl = document.createElement("div");
-        msgEl.textContent = "Gagal sekali bukan berarti gagal selamanya. Teruslah berusaha dan buktikan kemampuanmu!";
+        msgEl.innerHTML = `
+          <span class="motivasigagal">"Gagal sekali bukan berarti gagal <br> selamanya. Teruslah berusaha dan <br>buktikan kemampuanmu!"</span>
+        `;
         msgEl.classList.add("motivation");
         resultDiv.appendChild(msgEl);
       }, 2800);
