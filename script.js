@@ -226,7 +226,7 @@ function showResult() {
       setTimeout(() => {
         const msgEl = document.createElement("div");
         msgEl.innerHTML = `
-          <span class="motivasigagal">"Gagal sekali bukan berarti gagal <br> selamanya. Teruslah berusaha dan <br>buktikan kemampuanmu!"</span>
+          <span class="motivasigagal">Terimakasih atas waktu yang telah diluangkan, jangan menyerah ya!! see u in another changes</span>
         `;
         msgEl.classList.add("motivation");
         resultDiv.appendChild(msgEl);
