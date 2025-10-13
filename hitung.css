@@ -21,6 +21,37 @@ body {
   filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
 }
 
+/* .element img[src="element/Untitled design (7).png"] {
+    width: 350px;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, 0);
+    z-index: -1;
+    display: block;
+} */
+
+.element img[src="element/Untitled design (6).png"] {
+    width: 450px;
+    position: absolute;
+    left: 50%;
+    top: -8%;
+    transform: translate(-50%, 0);
+    z-index: 2;
+    display: block;
+}
+
+
+
+/* .element img[src="element/Untitled design (1).png"] {
+    position: fixed;
+    left: 200px;
+    bottom: 50px;
+    width: 300px;
+    z-index: -1;
+    display: block;
+} */
+
 .content-wrapper {
   margin-top: 220px;
   width: 100%;
@@ -197,6 +228,15 @@ h1 {
     font-size: 14px;
     padding: 10px 25px;
   }
+  .element img[src="element/Untitled design (6).png"] {
+    width: 350px;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, 0);
+    z-index: 2;
+    display: block;
+}
 }
 
 /* 🔹 Responsif HP kecil */
@@ -231,5 +271,14 @@ h1 {
     font-size: 13px;
     padding: 8px 20px;
   }
+  .element img[src="element/Untitled design (6).png"] {
+    width: 350px;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%, 0);
+    z-index: 2;
+    display: block;
+}
 }
 
