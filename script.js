@@ -240,3 +240,14 @@ function showResult() {
   }
 }
 }
+
+const savedLaunch = localStorage.getItem("launchDate");
+  if (!savedLaunch) {
+    window.location.href = "index.html";
+  } else {
+    const launchDate = new Date(savedLaunch);
+    const now = new Date();
+    if (now < launchDate) {
+      window.location.href = "index.html";
+    }
+  }

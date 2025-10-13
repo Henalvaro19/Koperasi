@@ -1,0 +1,235 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  background: radial-gradient(circle at top left, #2e004f, #000000 70%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.logo img {
+  height: 50px;
+  width: auto;
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+}
+
+.content-wrapper {
+  margin-top: 220px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  padding: 40px 80px;
+  margin: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  margin-bottom: 230px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: -20px;
+    letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+#countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.time {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.time span {
+  font-size: 56px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.time p {
+  font-size: 20px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.separator {
+  font-size: 48px;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  background: radial-gradient(circle at top left, #2e004f, #000000 70%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-wrapper {
+  margin-top: 220px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  padding: 10px 80px;
+  margin: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  margin-bottom: 230px;
+  transition: all 0.3s ease;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+#countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.time {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.time span {
+  font-size: 56px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.time p {
+  font-size: 20px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.separator {
+  font-size: 48px;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 40px;
+    margin-bottom: 150px;
+    margin-top: -50px;
+  }
+
+  h2 {
+    font-size: 12px;
+    margin-bottom: -10px;
+    margin-top: -10px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  #countdown {
+    gap: 15px;
+    margin-bottom: 0px;
+  }
+
+  .time span {
+    font-size: 44px;
+  }
+
+  .time p {
+    font-size: 14px;
+  }
+
+  .separator {
+    font-size: 36px;
+  }
+  #notifyBtn {
+    font-size: 14px;
+    padding: 10px 25px;
+  }
+}
+
+/* 🔹 Responsif HP kecil */
+@media (max-width: 580px) {
+  .container {
+    margin-top: -50px;
+    width: 80%;
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  #countdown {
+    gap: 10px;
+  }
+
+  .time span {
+    font-size: 25px;
+  }
+
+  .time p {
+    font-size: 12px;
+  }
+
+  .separator {
+    font-size: 28px;
+  }
+  #notifyBtn {
+    font-size: 13px;
+    padding: 8px 20px;
+  }
+}
+

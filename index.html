@@ -2,23 +2,41 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Form Pengumuman Seleksi</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koperasi Pangestu Pambudi</title>
+  <link rel="stylesheet" href="hitung.css">
 </head>
 <body>
+
     <div class="logo">
         <img src="logo koperasi.png" alt="Logo">
         <img src="752-SMKN_1_SURABAYA.png" alt="logo">
     </div>
 
+  <div class="content-wrapper">
     <div class="container">
-        <h1>Pengumuman Seleksi Tahap Selanjutnya</h1>
-            <form id="checkForm">
-                <input type="text" id="nama" placeholder="Contoh : Henalvaro Farrel Bagas" required>
-                <input type="text" id="kelas" placeholder="Contoh : XI TKJ 1" required>
-                <button type="submit">Lihat Hasil</button>
-            </form>
+      <h2>(tanggal-bulan-jam)</h2>
+      <h1>Website Akan Diluncurkan Dalam</h1>
+      <div id="countdown">
+        <div class="time">
+          <span id="days">00</span><p>Hari</p>
+        </div>
+        <div class="separator">:</div>
+        <div class="time">
+          <span id="hours">00</span><p>Jam</p>
+        </div>
+        <div class="separator">:</div>
+        <div class="time">
+          <span id="minutes">00</span><p>Menit</p>
+        </div>
+        <div class="separator">:</div>
+        <div class="time">
+          <span id="seconds">00</span><p>Detik</p>
+        </div>
+      </div>
     </div>
-  <script src="script.js"></script>
+  </div>
+
+  <script src="hitung.js"></script>
 </body>
 </html>
