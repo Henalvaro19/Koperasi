@@ -169,7 +169,7 @@ button:hover {
   animation: fadeUp 1s ease-out forwards;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 768px) {
   .container {
     padding: 25px 15px;
     margin: 40px;
@@ -192,5 +192,12 @@ button:hover {
   .element img[src="element/Untitled design (6).png"] {
     width: 320px;
     top: -5%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .container {
+    padding: 25px 15px;
+    margin: 40px;
   }
 }
