@@ -239,7 +239,6 @@ h1 {
 }
 }
 
-/* 🔹 Responsif HP kecil */
 @media (max-width: 580px) {
   .container {
     margin-top: -50px;
@@ -248,7 +247,7 @@ h1 {
   }
 
   h1 {
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 5px;
   }
 
@@ -257,7 +256,7 @@ h1 {
   }
 
   .time span {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .time p {
