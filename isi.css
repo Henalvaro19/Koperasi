@@ -17,7 +17,7 @@ body {
   left: 20px;
 }
 .logo img {
-  height: 100px;
+  height: 50px;
   width: auto;
   filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
 }
@@ -34,7 +34,7 @@ body {
 
 .container {
   text-align: center;
-  padding: 60px 70px;
+  padding: 30px 40px;
   margin: 30px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.08);
@@ -44,28 +44,23 @@ body {
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
 }
 
-/* .container h1 {
+.container h1 {
   margin-bottom: -30px;
-} */
-
-h1 {
-  font-size: 60px;
-  margin: 0;
 }
 
 form {
   display: flex; 
-  margin-top: -25px; 
-  padding: 50px 35px; 
+  margin-top: 20px; 
+  padding: 50px 100px; 
   flex-direction: column; 
-  gap: 30px;
+  gap: 12px;
 }
 
 input, button {
-  padding: 25px 20px;
+  padding: 12px 20px;
   border-radius: 12px;
   border: none;
-  font-size: 25px;
+  font-size: 16px;
   outline: none;
   transition: all 0.3s ease;
 }
@@ -174,7 +169,7 @@ button:hover {
   animation: fadeUp 1s ease-out forwards;
 }
 
-/* @media screen and (max-width: 1160px){
+@media screen and (max-width: 1160px){
   .container {
     padding: 25px 15px;
     margin: 40px;
@@ -198,8 +193,7 @@ button:hover {
     width: 320px;
     top: -5%;
   }
-} */
-
+}
 
 @media screen and (max-width: 720px) {
   .container {
