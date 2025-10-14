@@ -22,7 +22,7 @@ body {
   filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
 }
 
-.element img[src="element/Untitled design (6).png"] {
+/* .element img[src="element/Untitled design (6).png"] {
   width: 420px;
   position: absolute;
   left: 50%;
@@ -30,6 +30,14 @@ body {
   transform: translateX(-50%);
   z-index: -1;
   display: block;
+} */
+
+.content-wrapper {
+  margin-top: 220px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
