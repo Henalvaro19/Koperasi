@@ -231,6 +231,21 @@ body {
   }
 }
 
+@media screen and (max-width: 376px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  .typed-line {
+    font-size: 18px;
+  }
+
+  .fail-text {
+    font-size: 25px;
+  }
+}
+
+
 /* @media screen and (max-width: 720px) {
   .motivation .motivasigagal {
     font-size: 13.5px;
