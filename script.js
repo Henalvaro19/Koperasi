@@ -189,7 +189,8 @@ function showResult() {
               const prankMsg = document.createElement("div");
               prankMsg.classList.add("prank-msg");
               prankMsg.innerHTML = `
-                <span class="selamat">SELAMAT!!</span><br><br>
+                <span class="selamat">SELAMAT!!</span><br>
+                <span class="motivasi2">(Silakan join grup Whatsapp seleksi 2)</span><br><br>
                 <span class="selamat1">Kamu resmi LOLOS ketahap selanjutnya!</span><br>
                 <span class="prank">Hehe kena prank ya</span><br>
                 <span class="motivasi">"${motivasiKata}"</span><br>
