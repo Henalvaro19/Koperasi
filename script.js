@@ -194,7 +194,7 @@ function showResult() {
                 <span class="selamat1">Kamu resmi LOLOS ketahap selanjutnya!</span><br>
                 <span class="prank">Hehe kena prank ya</span><br>
                 <span class="motivasi">"${motivasiKata}"</span><br>
-                <span class="motivasi1">(MOHON UNTUK TIDAK DISEBAR LUASKAN)</span>
+                <span class="motivasi1">(Mohon agar kode QR tidak disebarluaskan.)</span>
               `;
               qrSection.appendChild(prankMsg);
               const selamatContainer = document.getElementById("selamatContainer");
