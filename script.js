@@ -237,18 +237,17 @@ function showResult() {
   }, "DINYATAKAN", typedLine, 200);
 }
   } else {
-  const errorEl = document.createElement("div");
-  errorEl.innerHTML = `
-    Data tidak ditemukan, periksa kembali nama anda 
-    <br>
-    <span style="font-size: 18px; color:red; font-style: italic;">
-      (Jika ini muncul, segera menghubungi admin)
-    </span>
-  `;
-  errorEl.classList.add("error-text");
-  resultDiv.appendChild(errorEl);
-}
-}
+    const errorEl = document.createElement("div");
+    errorEl.innerHTML = `
+      Data tidak ditemukan, periksa kembali nama anda 
+      <br>
+      <span style="font-size: 18px; color:red; font-style: italic;">
+        (Jika ini muncul, segera menghubungi admin)
+      </span>
+    `;
+    resultDiv.appendChild(errorEl);
+    }
+  }
 }
 
 const savedLaunch = localStorage.getItem("launchDate");
