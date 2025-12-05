@@ -90,8 +90,8 @@ if (form) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const nama = document.getElementById("nama").value.trim();
-    const kelas = document.getElementById("kelas").value.trim();
-    window.location.href = `pengumuman.html?nama=${encodeURIComponent(nama)}&kelas=${encodeURIComponent(kelas)}`;
+    // const kelas = document.getElementById("kelas").value.trim();
+    window.location.href = `pengumuman.html?nama=${encodeURIComponent(nama)}`;
   });
 }
 
@@ -99,8 +99,8 @@ if (resultDiv) {
   let students = {};
   const urlParams = new URLSearchParams(window.location.search);
   const nama = urlParams.get("nama");
-  const kelas = urlParams.get("kelas");
-  const key = `${nama?.toLowerCase()}-${kelas?.toLowerCase()}`;
+  // const kelas = urlParams.get("kelas");
+  const key = `${nama?.toLowerCase()}`;
 
   fetch("data.xlsx")
     .then(res => res.arrayBuffer())
@@ -109,7 +109,7 @@ if (resultDiv) {
       const sheet = wb.Sheets[wb.SheetNames[0]];
       const data = XLSX.utils.sheet_to_json(sheet);
       data.forEach(row => {
-        students[`${row.Nama.toLowerCase()}-${row.Kelas.toLowerCase()}`] = row.Hasil;
+        students[`${row.Nama.toLowerCase()}`] = row.Hasil;
       });
       showResult();
     });
