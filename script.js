@@ -242,7 +242,7 @@ function showResult() {
       Data tidak ditemukan, periksa kembali nama anda 
       <br>
       <span style="font-size: 18px; color:red; font-style: italic;">
-        (Jika ini muncul, segera menghubungi admin)
+        (Jika ini muncul, segera hubungi admin)
       </span>
     `;
     resultDiv.appendChild(errorEl);
