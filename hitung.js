@@ -1,5 +1,5 @@
 // Format: new Date(tahun, bulan-1, tanggal, jam, menit, detik)
-const launchDate = new Date(2025, 11, 5, 17, 30, 0);
+const launchDate = new Date(2025, 11, 6, 17, 30, 0);
 localStorage.setItem("launchDate", launchDate.toISOString());
 const daysEl = document.getElementById('days');
 const hoursEl = document.getElementById('hours');
