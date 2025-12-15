@@ -1,7 +1,7 @@
 {
   "routes": [
     {
-      "src": "^/private/data\\.xlsx$",
+      "src": "^/(.*)\\.xlsx$",
       "status": 404
     },
     {
@@ -13,4 +13,3 @@
     }
   ]
 }
-
