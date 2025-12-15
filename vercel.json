@@ -1,7 +1,10 @@
 {
   "routes": [
     {
-      "src": "^/private/.*",
+      "src": "/private/(.*)",
+      "headers": {
+        "x-blocked": "true"
+      },
       "status": 404
     }
   ]
