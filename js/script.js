@@ -173,10 +173,16 @@ function showResult() {
               qrSection.classList.add("qr-section");
 
               const qrImg = document.createElement("img");
-              qrImg.src = "/img/qrcode.png";
               qrImg.alt = "QR Code";
               qrImg.classList.add("qr-img");
               qrSection.appendChild(qrImg);
+
+              fetch(`/api/qr?nama=${encodeURIComponent(nama)}`)
+                .then(res => res.json())
+                .then(data => {
+                  qrImg.src = `/api/qr?token=${data.token}`;
+                });
+
 
               const prankMsg = document.createElement("div");
               prankMsg.classList.add("prank-msg");
