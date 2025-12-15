@@ -181,7 +181,7 @@ function showResult() {
               qrSection.classList.add("qr-section");
 
               const qrImg = document.createElement("img");
-              qrImg.src = "qrcode.png";
+              qrImg.src = "img/qrcode.png";
               qrImg.alt = "QR Code";
               qrImg.classList.add("qr-img");
               qrSection.appendChild(qrImg);
