@@ -1,11 +1,15 @@
 {
   "routes": [
     {
-      "src": "/private/(.*)",
-      "headers": {
-        "x-blocked": "true"
-      },
+      "src": "^/private/data\\.xlsx$",
       "status": 404
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }
