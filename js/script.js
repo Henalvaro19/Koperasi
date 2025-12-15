@@ -102,7 +102,7 @@ if (resultDiv) {
   // const kelas = urlParams.get("kelas");
   const key = `${nama?.toLowerCase()}`;
 
-  fetch("data.xlsx")
+  fetch("/private/data.xlsx")
     .then(res => res.arrayBuffer())
     .then(ab => {
       const wb = XLSX.read(ab, { type: "array" });
