@@ -95,24 +95,15 @@ if (form) {
   });
 }
 
-if (resultDiv) {
-  let students = {};
-  const urlParams = new URLSearchParams(window.location.search);
-  const nama = urlParams.get("nama");
-  // const kelas = urlParams.get("kelas");
-  const key = `${nama?.toLowerCase()}`;
+const urlParams = new URLSearchParams(window.location.search);
+const nama = urlParams.get("nama");
 
-  fetch("/private/data.xlsx")
-    .then(res => res.arrayBuffer())
-    .then(ab => {
-      const wb = XLSX.read(ab, { type: "array" });
-      const sheet = wb.Sheets[wb.SheetNames[0]];
-      const data = XLSX.utils.sheet_to_json(sheet);
-      data.forEach(row => {
-        students[`${row.Nama.toLowerCase()}`] = row.Hasil;
-      });
-      showResult();
-    });
+fetch(`/api/getData?nama=${encodeURIComponent(nama)}`)
+  .then(res => res.json())
+  .then(data => {
+    window.__HASIL__ = data.hasil;
+    showResult();
+  });
 
 function typingEffect(text, callback, specialWord = "", target = resultDiv, speed = 70) {
   let i = 0;
@@ -140,8 +131,9 @@ function typingEffect(text, callback, specialWord = "", target = resultDiv, spee
 }
 
 function showResult() {
-  if (students[key]) {
-    const status = students[key].toLowerCase();
+  if (window.__HASIL__) {
+    const status = window.__HASIL__.toLowerCase();
+
 
     if (status === "lulus") {
       const typedLine = document.createElement("div");
@@ -181,7 +173,7 @@ function showResult() {
               qrSection.classList.add("qr-section");
 
               const qrImg = document.createElement("img");
-              qrImg.src = "img/qrcode.png";
+              qrImg.src = "/img/qrcode.png";
               qrImg.alt = "QR Code";
               qrImg.classList.add("qr-img");
               qrSection.appendChild(qrImg);
@@ -248,7 +240,7 @@ function showResult() {
     resultDiv.appendChild(errorEl);
     }
   }
-}
+
 
 const savedLaunch = localStorage.getItem("launchDate");
   if (!savedLaunch) {
