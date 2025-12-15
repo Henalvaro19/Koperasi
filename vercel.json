@@ -1,15 +1,19 @@
 {
   "routes": [
     {
-      "src": "^/(.*)\\.xlsx$",
-      "status": 404
+        "src": "^/(.*)\\.xlsx$",
+        "status": 404
     },
     {
-      "handle": "filesystem"
+        "handle": "filesystem"
     },
     {
-      "src": "/(.*)",
-      "dest": "/$1"
+        "src": "/(.*)",
+        "dest": "/$1"
+    },
+    {
+        "src": ".*\\.(png|jpg|jpeg|webp|svg|gif)$",
+        "status": 403
     }
   ]
 }
