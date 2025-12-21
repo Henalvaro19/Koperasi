@@ -86,27 +86,36 @@ const motivasiList = [
 const motivasiKata = motivasiList[Math.floor(Math.random() * motivasiList.length)];
 
 
-if (form) {
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+(async () => {
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get("token");
 
-    const nama = document.getElementById("nama").value.trim();
-    if (!nama) return;
+  if (!token) {
+    window.location.href = "isi.html";
+    return;
+  }
 
-    const res = await fetch(`/api/token?nama=${encodeURIComponent(nama)}`);
-    const data = await res.json();
+  try {
+    const resToken = await fetch(`/api/token?token=${token}`);
+    const tokenData = await resToken.json();
 
-    if (!data.token) {
-      alert("Gagal membuat token");
+    if (!tokenData.valid) {
+      window.location.href = "isi.html";
       return;
     }
 
-    window.location.href = `/pengumuman.html?token=${data.token}`;
-  });
-}
+    const nama = tokenData.nama;
 
-const urlParams = new URLSearchParams(window.location.search);
-const nama = urlParams.get("nama");
+    const resData = await fetch(`/api/getData?nama=${encodeURIComponent(nama)}`);
+    const data = await resData.json();
+
+    window.__HASIL__ = data.hasil;
+    showResult(nama);
+
+  } catch (err) {
+    window.location.href = "isi.html";
+  }
+})();
 
 fetch(`/api/getData?nama=${encodeURIComponent(nama)}`)
   .then(res => res.json())
@@ -140,7 +149,7 @@ function typingEffect(text, callback, specialWord = "", target = resultDiv, spee
   typeNext();
 }
 
-function showResult() {
+function showResult(nama) {
   if (window.__HASIL__) {
     const status = window.__HASIL__.toLowerCase();
 
