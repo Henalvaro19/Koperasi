@@ -32,7 +32,26 @@
                 <button type="submit">Lihat Hasil</button>
             </form>
     </div>
-  <script src="js/script.js"></script>
+  <script src="js/script.js">
+    const form = document.getElementById("form");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const nama = document.getElementById("nama").value.trim();
+  if (!nama) return;
+
+  const res = await fetch(`/api/token?nama=${encodeURIComponent(nama)}`);
+  const data = await res.json();
+
+  if (!data.token) {
+    alert("Gagal membuat token");
+    return;
+  }
+
+  window.location.href = `/pengumuman.html?token=${data.token}`;
+});
+  </script>
 </body>
 </html>
 
