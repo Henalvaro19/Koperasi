@@ -14,13 +14,11 @@ function generateToken(nama) {
 export default function handler(req, res) {
   const { nama, token } = req.query;
 
-  // REQUEST TOKEN BARU
   if (nama && !token) {
     const newToken = generateToken(nama.toLowerCase());
     return res.json({ token: newToken });
   }
 
-  // VALIDASI TOKEN
   if (!token || !tokens.has(token)) {
     return res.status(403).json({ valid: false });
   }
