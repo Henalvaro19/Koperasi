@@ -87,11 +87,21 @@ const motivasiKata = motivasiList[Math.floor(Math.random() * motivasiList.length
 
 
 if (form) {
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
     const nama = document.getElementById("nama").value.trim();
-    // const kelas = document.getElementById("kelas").value.trim();
-    window.location.href = `pengumuman.html?nama=${encodeURIComponent(nama)}`;
+    if (!nama) return;
+
+    const res = await fetch(`/api/token?nama=${encodeURIComponent(nama)}`);
+    const data = await res.json();
+
+    if (!data.token) {
+      alert("Gagal membuat token");
+      return;
+    }
+
+    window.location.href = `/pengumuman.html?token=${data.token}`;
   });
 }
 

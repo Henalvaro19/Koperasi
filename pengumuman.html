@@ -26,7 +26,41 @@
   </div>
 
   <canvas id="fireworks"></canvas>
-  <script src="js/script.js"></script>
+  <script src="js/script.js">
+
+(async () => {
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get("token");
+
+  if (!token) {
+    window.location.href = "/isi.html";
+    return;
+  }
+
+  try {
+    const res = await fetch(`/api/token?token=${token}`);
+    const data = await res.json();
+
+    if (!data.valid) {
+      window.location.href = "/isi.html";
+      return;
+    }
+
+    // ✅ TOKEN VALID
+    console.log("Token valid untuk:", data.nama);
+
+    // AMBIL HASIL SELEKSI
+    const hasilRes = await fetch(`/api/getData?nama=${encodeURIComponent(data.nama)}`);
+    const hasil = await hasilRes.json();
+
+    window.__HASIL__ = hasil.hasil;
+    showResult();
+
+  } catch (err) {
+    window.location.href = "/isi.html";
+  }
+})();
+  </script>
 </body>
 </html>
 

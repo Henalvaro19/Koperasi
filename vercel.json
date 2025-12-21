@@ -21,18 +21,6 @@
         "x-blocked": "true"
       },
       "status": 404
-    },
-    {
-      "src": "^/$",
-      "dest": "/index.html"
-    },
-    {
-      "src": "^/index\\.html$",
-      "dest": "/index.html"
-    },
-    {
-      "src": ".*",
-      "status": 404
     }
   ]
 }
