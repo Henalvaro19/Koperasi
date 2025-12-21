@@ -235,17 +235,19 @@ function showResult(nama) {
   }, "DINYATAKAN", typedLine, 200);
 }
   } else {
+    if (window.__HASIL__ === null) {
     const errorEl = document.createElement("div");
     errorEl.innerHTML = `
-      Data tidak ditemukan, periksa kembali nama anda 
+      Data tidak ditemukan, periksa kembali nama anda
       <br>
       <span style="font-size: 18px; color:red; font-style: italic;">
         (Jika ini muncul, segera hubungi admin)
       </span>
     `;
     resultDiv.appendChild(errorEl);
-    }
+    return;
   }
+  }}
 
 
 const savedLaunch = localStorage.getItem("launchDate");

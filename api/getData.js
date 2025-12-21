@@ -21,6 +21,6 @@ export default function handler(req, res) {
   });
 
   return res.json({
-    hasil: siswa[nama] || "Data tidak ditemukan"
+  hasil: siswa[nama] ?? null
   });
 }
