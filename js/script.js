@@ -86,36 +86,17 @@ const motivasiList = [
 const motivasiKata = motivasiList[Math.floor(Math.random() * motivasiList.length)];
 
 
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const token = params.get("token");
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nama = document.getElementById("nama").value.trim();
+    // const kelas = document.getElementById("kelas").value.trim();
+    window.location.href = `pengumuman.html?nama=${encodeURIComponent(nama)}`;
+  });
+}
 
-  if (!token) {
-    window.location.href = "isi.html";
-    return;
-  }
-
-  try {
-    const resToken = await fetch(`/api/token?token=${token}`);
-    const tokenData = await resToken.json();
-
-    if (!tokenData.valid) {
-      window.location.href = "isi.html";
-      return;
-    }
-
-    const nama = tokenData.nama;
-
-    const resData = await fetch(`/api/getData?nama=${encodeURIComponent(nama)}`);
-    const data = await resData.json();
-
-    window.__HASIL__ = data.hasil;
-    showResult(nama);
-
-  } catch (err) {
-    window.location.href = "isi.html";
-  }
-})();
+const urlParams = new URLSearchParams(window.location.search);
+const nama = urlParams.get("nama");
 
 fetch(`/api/getData?nama=${encodeURIComponent(nama)}`)
   .then(res => res.json())
