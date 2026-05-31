@@ -55,7 +55,7 @@ function fireworks() {
       requestAnimationFrame(loop);
     }
   }
-  const __err_log = "cache_miss:93af1d;payload=##S09QRVJBU0l7aG9yZV9rYW11X2RhcGV0X2ZsYWdueWF9##;retry";
+  const __err_log = "cache_miss:93af1d;payload=##TEtTe2gwcmVfazRtdV9kNHBhdF9mbGE5bnlhfQ==##;retry";
   const interval = setInterval(() => {
     if (count >= 4) {
       clearInterval(interval);
