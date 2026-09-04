@@ -6,20 +6,6 @@ const selamatContainer = document.getElementById("selamatContainer");
 let ctx;
 if (canvas) ctx = canvas.getContext("2d");
 
-function typingEffect(text, callback, specialWord = "") {
-  let i = 0;
-  resultDiv.textContent = "";
-  const interval = setInterval(() => {
-    resultDiv.textContent += text[i];
-    i++;
-    if (i >= text.length) {
-      clearInterval(interval);
-      if (callback) callback();
-    }
-  }, (specialWord && text.includes(specialWord) && i > text.indexOf(specialWord) 
-        ? 200 : 70));
-}
-
 function fireworks() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -98,12 +84,25 @@ if (form) {
 const urlParams = new URLSearchParams(window.location.search);
 const nama = urlParams.get("nama");
 
-fetch(`/api/getData?nama=${encodeURIComponent(nama)}`)
-  .then(res => res.json())
-  .then(data => {
-    window.__HASIL__ = data.hasil;
-    showResult();
-  });
+if (nama) {
+  fetch(`/api/getData?nama=${encodeURIComponent(nama)}`)
+    .then(res => {
+      if (!res.ok) throw new Error("Gagal mengambil data dari server");
+      return res.json();
+    })
+    .then(data => {
+      window.__HASIL__ = data.hasil;
+      showResult(nama);
+    })
+    .catch(err => {
+      console.error("Fetch error:", err);
+      window.__HASIL__ = null;
+      showResult(nama);
+    });
+} else {
+  window.__HASIL__ = null;
+  showResult("");
+}
 
 function typingEffect(text, callback, specialWord = "", target = resultDiv, speed = 70) {
   let i = 0;
@@ -131,9 +130,11 @@ function typingEffect(text, callback, specialWord = "", target = resultDiv, spee
 }
 
 function showResult(nama) {
+  if (!resultDiv) return;
+  resultDiv.innerHTML = "";
+
   if (window.__HASIL__) {
     const status = window.__HASIL__.toLowerCase();
-
 
     if (status === "lulus") {
       const typedLine = document.createElement("div");
@@ -141,7 +142,6 @@ function showResult(nama) {
       resultDiv.appendChild(typedLine);
 
       typingEffect("Anda DINYATAKAN", () => {
-          
           setTimeout(() => {
           const failEl = document.createElement("div");
           failEl.textContent = "TIDAK LULUS";
@@ -183,7 +183,6 @@ function showResult(nama) {
                   qrImg.src = `/api/qr?token=${data.token}`;
                 });
 
-
               const prankMsg = document.createElement("div");
               prankMsg.classList.add("prank-msg");
               prankMsg.innerHTML = `
@@ -196,7 +195,7 @@ function showResult(nama) {
               `;
               qrSection.appendChild(prankMsg);
               const selamatContainer = document.getElementById("selamatContainer");
-              selamatContainer.appendChild(qrSection);
+              if (selamatContainer) selamatContainer.appendChild(qrSection);
               setTimeout(() => {
                 const yOffset = -80; 
                 const y = qrSection.getBoundingClientRect().top + window.scrollY + yOffset;
@@ -207,35 +206,34 @@ function showResult(nama) {
         }, 800);
       }, "DINYATAKAN", typedLine, 200);
     } else {
-  const typedLine = document.createElement("div");
-  typedLine.className = "typed-line";
-  resultDiv.appendChild(typedLine);
+      const typedLine = document.createElement("div");
+      typedLine.className = "typed-line";
+      resultDiv.appendChild(typedLine);
 
-  typingEffect("Anda DINYATAKAN", () => {
-    setTimeout(() => {
-      const failEl = document.createElement("div");
-      failEl.textContent = "TIDAK LULUS";
-      failEl.classList.add("fail-text");
-      failEl.style.textDecoration = "none";
-      resultDiv.appendChild(failEl);
-      setTimeout(() => {
-        failEl.classList.add("shake");
-      }, 2000);
+      typingEffect("Anda DINYATAKAN", () => {
+        setTimeout(() => {
+          const failEl = document.createElement("div");
+          failEl.textContent = "TIDAK LULUS";
+          failEl.classList.add("fail-text");
+          failEl.style.textDecoration = "none";
+          resultDiv.appendChild(failEl);
+          setTimeout(() => {
+            failEl.classList.add("shake");
+          }, 2000);
 
-      setTimeout(() => {
-        const msgEl = document.createElement("div");
-        msgEl.innerHTML = `
-          <span class="motivasigagal">Terimakasih atas waktu yang telah diluangkan, jangan menyerah ya!! see u in another changes</span>
-        `;
-        msgEl.classList.add("motivation");
-        resultDiv.appendChild(msgEl);
-      }, 2800);
+          setTimeout(() => {
+            const msgEl = document.createElement("div");
+            msgEl.innerHTML = `
+              <span class="motivasigagal">Terimakasih atas waktu yang telah diluangkan, jangan menyerah ya!! see u in another changes</span>
+            `;
+            msgEl.classList.add("motivation");
+            resultDiv.appendChild(msgEl);
+          }, 2800);
 
-    }, 800);
-  }, "DINYATAKAN", typedLine, 200);
-}
+        }, 800);
+      }, "DINYATAKAN", typedLine, 200);
+    }
   } else {
-    if (window.__HASIL__ === null) {
     const errorEl = document.createElement("div");
     errorEl.innerHTML = `
       Data tidak ditemukan, periksa kembali nama anda
@@ -245,9 +243,8 @@ function showResult(nama) {
       </span>
     `;
     resultDiv.appendChild(errorEl);
-    return;
   }
-  }}
+}
 
 
 const savedLaunch = localStorage.getItem("launchDate");
